@@ -34,11 +34,11 @@ if (filename == ""):
     sys.exit(2)
 
 
-song_lyrics_txt = load_txt(filename)
-song_lyrics_tokens = nltk.word_tokenize(song_lyrics_txt)
+input_text_txt = load_txt(filename)
+input_text_tokens = nltk.word_tokenize(input_text_txt)
 
 # Pre-processing tokens
-song_lyrics_tokens_without_punctuation = [t.lower() for t in song_lyrics_tokens if t.isalnum()]
-song_lyrics_word_stems = [nltk.PorterStemmer().stem(w) for w in song_lyrics_tokens_without_punctuation]
+input_text_tokens_without_punctuation = [t.lower() for t in input_text_tokens if t.isalnum()]
+input_text_word_stems = [nltk.PorterStemmer().stem(w) for w in input_text_tokens_without_punctuation]
 
-print(filename, "lexical diversity: ", ttr(song_lyrics_word_stems, song_lyrics_tokens_without_punctuation))
+print(filename, "lexical diversity: ", ttr(input_text_word_stems, input_text_tokens_without_punctuation))
